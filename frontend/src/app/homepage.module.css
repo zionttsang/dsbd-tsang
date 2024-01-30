@@ -1,0 +1,21 @@
+.threads {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.thread {
+  padding: 8px;
+  background-color: pink;
+}
+
+.likeCount {
+  margin-left: auto;
+  margin-right: 20px;
+  background-color: paleturquoise;
+}
+
+.date {
+  background-color: palegreen;
+}
