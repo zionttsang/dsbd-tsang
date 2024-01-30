@@ -16,7 +16,7 @@ connectToDB()
   })
 
 app.get('/getThreads', (req, res) => {
-  T66Y.find()
+  T66Y.find().sort({ date: -1 })
     .then(t66y => res.json(t66y))
     .catch(err => res.json(err))
 })
