@@ -8,13 +8,26 @@ export default function Home() {
   </div>
 }
 
+
+// import T66Y from "@/lib/db";
+// import { connectToDB } from "@/lib/listener";
+// import { useEffect, useState } from "react";
+
 // export default function Home() {
 
 //   const [threads, setThreads] = useState([])
+
 //   useEffect(() => {
-//     axios.get('http://localhost:3001/getThreads')
+
+//     connectToDB()
+
+//     T66Y.find().sort({ date: -1 })
 //       .then(threads => setThreads(threads.data))
 //       .catch(err => console.log(err))
+
+//     // axios.get('http://localhost:3001/getThreads')
+//     //   .then(threads => setThreads(threads.data))
+//     //   .catch(err => console.log(err))
 //   }, [])
 
 //   return (
