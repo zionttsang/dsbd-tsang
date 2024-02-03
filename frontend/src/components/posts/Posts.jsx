@@ -13,18 +13,31 @@ const Posts = () => {
   }, [])
 
   return (
-    <tbody>
+    <ul className={styles.threads}>
       {
-        threads.map(thread => {
-          return <tr className={styles.threads}>
-            <td className={styles.thread}><a href={thread.link}>{thread.title}</a></td>
-            <td className={styles.likeCount}>{thread.likeCount}</td>
-            <td className={styles.date}>{thread.date}</td>
-          </tr>
-        })
+        threads.map((thread) => (
+          <li className={styles.thread}>
+            <a href={thread.link}>{thread.title}</a>
+            <a className={styles.likeCount}>{thread.likeCount}</a>
+            <a className={styles.date}>{thread.date}</a>
+          </li>
+        ))
       }
-    </tbody>
+    </ul>
   )
+  // return (
+  //   <tbody>
+  //     {
+  //       threads.map(thread => {
+  //         return <tr className={styles.threads}>
+  //           <td className={styles.thread}><a href={thread.link}>{thread.title}</a></td>
+  //           <td className={styles.likeCount}>{thread.likeCount}</td>
+  //           <td className={styles.date}>{thread.date}</td>
+  //         </tr>
+  //       })
+  //     }
+  //   </tbody>
+  // )
 }
 
 export default Posts
