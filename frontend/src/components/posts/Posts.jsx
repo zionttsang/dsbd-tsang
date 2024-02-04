@@ -16,7 +16,7 @@ const Posts = () => {
     <ul className={styles.threads}>
       {
         threads.map((thread) => (
-          <li className={styles.thread}>
+          <li key={thread.id} className={styles.thread}>
             <a href={thread.link}>{thread.title}</a>
             <a className={styles.likeCount}>{thread.likeCount}</a>
             <a className={styles.date}>{thread.date}</a>

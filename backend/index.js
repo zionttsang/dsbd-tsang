@@ -10,9 +10,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const PORT = 3001
 connectToDB()
   .then(() => {
-    app.listen(process.env.PORT, () => { console.log('Listening on ', process.env.PORT) })
+    app.listen(PORT, () => { console.log('Listening on ', PORT) })
   })
 
 app.get('/getThreads', (req, res) => {
