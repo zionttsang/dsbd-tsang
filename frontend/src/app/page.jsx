@@ -1,46 +1,23 @@
 // 'use client'
 
 import Posts from "@/components/posts/Posts";
+import { getPosts } from "@/lib/utils";
+import styles from './homepage.module.css'
 
+const threads = await getPosts()
 export default function Home() {
-  return <div>
-    <Posts />
-  </div>
+
+  return (
+    <ul className={styles.threads}>
+      {
+        threads.map((thread) => (
+          <li key={thread.id} className={styles.thread}>
+            <a href={thread.link}>{thread.title}</a>
+            <a className={styles.likeCount}>{thread.likeCount}</a>
+            <a className={styles.date}>{thread.date}</a>
+          </li>
+        ))
+      }
+    </ul>
+  )
 }
-
-
-// import T66Y from "@/lib/db";
-// import { connectToDB } from "@/lib/listener";
-// import { useEffect, useState } from "react";
-
-// export default function Home() {
-
-//   const [threads, setThreads] = useState([])
-
-//   useEffect(() => {
-
-//     connectToDB()
-
-//     T66Y.find().sort({ date: -1 })
-//       .then(threads => setThreads(threads.data))
-//       .catch(err => console.log(err))
-
-//     // axios.get('http://localhost:3001/getThreads')
-//     //   .then(threads => setThreads(threads.data))
-//     //   .catch(err => console.log(err))
-//   }, [])
-
-//   return (
-//     <tbody>
-//       {
-//         threads.map(thread => {
-//           return <tr className={styles.threads}>
-//             <td className={styles.thread}><a href={thread.link}>{thread.title}</a></td>
-//             <td className={styles.likeCount}>{thread.likeCount}</td>
-//             <td className={styles.date}>{thread.date}</td>
-//           </tr>
-//         })
-//       }
-//     </tbody>
-//   )
-// }

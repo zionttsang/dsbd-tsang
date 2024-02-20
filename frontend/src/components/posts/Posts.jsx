@@ -7,7 +7,7 @@ import axios from 'axios'
 const Posts = () => {
   const [threads, setThreads] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:3001/getThreads')
+    axios.get(`http://localhost:3001/getThreads`)
       .then(threads => setThreads(threads.data))
       .catch(err => console.log(err))
   }, [])
