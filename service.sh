@@ -1,4 +1,4 @@
 #!/bin/bash
-nohup nodejs ./backend/index.js &
+# nohup node ./backend/index.js &
 cd ./frontend
 npm run start

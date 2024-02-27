@@ -3,21 +3,27 @@
 import Posts from "@/components/posts/Posts";
 import { getPosts } from "@/lib/utils";
 import styles from './homepage.module.css'
+import { Suspense } from "react";
 
-const threads = await getPosts()
-export default function Home() {
+export default async function Home() {
+  const threads = await getPosts()
+  // console.log(threads)
 
   return (
-    <ul className={styles.threads}>
-      {
-        threads.map((thread) => (
-          <li key={thread.id} className={styles.thread}>
-            <a href={thread.link}>{thread.title}</a>
-            <a className={styles.likeCount}>{thread.likeCount}</a>
-            <a className={styles.date}>{thread.date}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <Suspense fallback='Loading....'>
+
+      <ul className={styles.threads}>
+        {
+          threads.map((thread) => (
+            <li key={thread.id} className={styles.thread}>
+              <a href={thread.link}>{thread.title}</a>
+              <a className={styles.likeCount}>{thread.likeCount}</a>
+              <a className={styles.date}>{JSON.stringify(thread.joinDate)}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </Suspense>
+
   )
 }
